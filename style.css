@@ -79,7 +79,7 @@ font-size: 0.85rem;
 background-color: var(--panel);
 border: 1px solid var(--border);
 border-radius: var(--radius);
-padding: 24pz;
+padding: 24px;
 margin-bottom: 20px;
  }
 
@@ -121,7 +121,7 @@ input[type="time"] {
   color: var(--ink);
 }
 
-input[type="data"]:focus-visible,
+input[type="date"]:focus-visible,
 input[type="time"]:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
@@ -200,4 +200,94 @@ border-color: var(--border-strong);
 margin: 0;
 color: var(--ink-soft);
 font-size: 0.92rem;
+}
+.gauge-main {
+  text-align: center;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+.gauge-label {
+  margin: 0 0 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.odometer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.odometer-digit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 46px;
+  background-color: var(--cell-bg);
+  color: var(--cell-digit);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.odometer-sep {
+width: 8px;
+align-self: flex-end;
+margin-bottom: 6px;
+border-bottom: 3px solid var(--ink-faint);
+}
+
+.gauge-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 14px;
+margin: 0;
+}
+
+.gauge {
+border: 1px solid var(--border);
+border-radius: 4px;
+padding: 14px 10px;
+text-align: center;
+}
+.gauge-key {
+margin: 0 0 6px;
+font-family: var(--font-mono);
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--ink-faint);
+}
+
+.gauge-value {
+margin: 0;
+font-family: var(--font-mono);
+font-size: 1.2rem;
+font-weight: 500;
+color: var(--ink);
+}
+@media (max-width: 560px) {
+.gauge-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.odometer-digit {
+min-width: 22px;
+height: 38px;
+font-size: 1.15rem;
+}
+.control-actions {
+  flex-direction: column;
+}
+
+.control-actions .btn {
+  width: 100%;
+}
 }

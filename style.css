@@ -182,4 +182,22 @@ border-color: var(--border-strong);
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
-
+.empty-panel {
+  text-align: center;
+  border-style: dashed;
+  padding: 32px 24px;
+}
+.empty-headline {
+  margin: 0 0 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.empty-sub {
+margin: 0;
+color: var(--ink-soft);
+font-size: 0.92rem;
+}

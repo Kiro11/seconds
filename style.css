@@ -1,0 +1,40 @@
+:root {
+ --bg: #f3f1ec;
+  --panel: #ffffff;
+  --ink: #191b1f;
+  --ink-soft: #5a5e66;
+  --ink-faint: #8b8e94;
+  --border: #d8d5cc;
+  --border-strong: #b9b5a8;
+ --accent: #1f5c4b;
+  --accent-dark: #143d32;
+  --accent-soft: #e4ece8;
+ 
+  --danger: #a3312b;
+  --danger-bg: #f7e9e7;
+  --danger-border: #e2b6b1;
+ 
+  --cell-bg: #1c1f26;
+  --cell-digit: #4fb999;
+--font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", "Courier New", Courier, monospace;
+  --font-sans: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+ 
+  --radius: 6px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+}
+.page {
+max-width: 690px;
+margin: 0 auto;
+padding: 48px 20px 56px;
+}

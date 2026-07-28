@@ -30,13 +30,46 @@
           </div>
         </div>
    <p id="form-error" class="error-tag" role="alert" hidden></p>
- 
         <div class="control-actions">
   <button type="submit" id="calculate-btn" class="btn btn-primary">Calculate</button>
    <button type="button" id="reset-btn" class="btn btn-ghost">Reset</button>
         </div>
-      </form>
+ </form>
   <section id="empty-state" class="panel empty-panel">
 <p class="empty-headline">No reading yet</p>
 <p class="empty-sub">Enter a date of birth above and press Calculate to start the counter.</p>  
  </section>
+   <section id="results" class="panel results-panel" hidden>
+<div class="gauge-main">
+          <p class="gauge-label">Total seconds elapsed</p>
+          <div id="seconds-display" class="odometer" aria-live="polite" aria-atomic="true"></div>
+        </div>
+ <dl class="gauge-grid">
+          <div class="gauge">
+            <dt class="gauge-key">Years</dt>
+            <dd class="gauge-value" id="stat-years">0</dd>
+          </div>
+           <div class="gauge">
+            <dt class="gauge-key">Days</dt>
+            <dd class="gauge-value" id="stat-days">0</dd>
+          </div>
+ <div class="gauge">
+            <dt class="gauge-key">Hours</dt>
+            <dd class="gauge-value" id="stat-hours">0</dd>
+          </div>
+          <div class="gauge">
+            <dt class="gauge-key">Minutes</dt>
+            <dd class="gauge-value" id="stat-minutes">0</dd>
+          </div>
+        </dl>
+          </section>
+ 
+    </main>
+      
+    <footer class="page-footer">
+        <p>Figures are measured from your recorded birth moment to the current instant on this device's clock.</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

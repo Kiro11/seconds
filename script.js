@@ -41,3 +41,46 @@ function clearError() {
   formError.textContent = "";
   formError.hidden = true;
 }
+function calculateElapsedStats(fromDate, toDate) {
+  const totalSeconds = Math.floor((toDate - fromDate) / 1000);
+ 
+  const totalMinutes = Math.floor(totalSeconds / 60);
+  const totalHours = Math.floor(totalSeconds / 3600);
+  const totalDays = Math.floor(totalSeconds / 86400);
+
+  let years = toDate.getFullYear() -  fromDate.getFullYear();
+  const hasHadBirthdayThisYear =
+   toDate.getMonth() > fromDate.getMonth() ||
+   (toDate.getMonth() === fromDate.getMonth() && toDate.getDate() >= fromDate.getDate());
+  if (!hasHadBirthdayThisYear) {
+    years -= 1;
+  }
+  return { totalSeconds, totalMinutes, totalHours, totalDays, years };
+}
+function formatWithComas(number) {
+   return number.toLocaleString("en-US");  
+}
+
+function renderOdometer(totalSeconds) {
+const formatted = formatWithComas(totalSeconds);
+secondDisplay.innerHTML = "";
+for (const character of formatted) {
+const cell = document.createElement("span");
+if (character === ",") {
+      cell.className = "odometer-sep";
+    } else {
+      cell.className = "odometer-digit";
+      cell.textContent = character;
+    }
+secondDisplay.appendChild(cell);
+  }
+}
+function renderStats() {
+const stats = calculateElapsedStats(birthDateTime, new Date());
+
+renderOdometer(stats.totalSeconds);
+statYearsEl.textContent = formatWithComas(stats.years);
+statDaysEl.textContent = formatWithCommas(stats.totalDays);
+  statHoursEl.textContent = formatWithCommas(stats.totalHours);
+  statMinutesEl.textContent = formatWithCommas(stats.totalMinutes);
+}

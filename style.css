@@ -121,7 +121,7 @@ input[type="time"] {
   color: var(--ink);
 }
 
-input[type="date"]:focus-visible,
+input[type="date  "]:focus-visible,
 input[type="time"]:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;

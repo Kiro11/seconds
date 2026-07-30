@@ -13,7 +13,7 @@ const statDaysEl = document.getElementById("stat-days");
 const statHoursEl = document.getElementById("stat-hours");
 const statMinutesEl = document.getElementById("stat-minutes");
  
-let tickIntervalid = null;
+let tickIntervalId = null;
 
 
 let birthDateTime = null;
@@ -57,12 +57,12 @@ function calculateElapsedStats(fromDate, toDate) {
   }
   return { totalSeconds, totalMinutes, totalHours, totalDays, years };
 }
-function formatWithComas(number) {
+function formatWithCommas(number) {
    return number.toLocaleString("en-US");  
 }
 
 function renderOdometer(totalSeconds) {
-const formatted = formatWithComas(totalSeconds);
+const formatted = formatWithCommas(totalSeconds);
 secondDisplay.innerHTML = "";
 for (const character of formatted) {
 const cell = document.createElement("span");
@@ -79,8 +79,49 @@ function renderStats() {
 const stats = calculateElapsedStats(birthDateTime, new Date());
 
 renderOdometer(stats.totalSeconds);
-statYearsEl.textContent = formatWithComas(stats.years);
+statYearsEl.textContent = formatWithCommas(stats.years);
 statDaysEl.textContent = formatWithCommas(stats.totalDays);
   statHoursEl.textContent = formatWithCommas(stats.totalHours);
   statMinutesEl.textContent = formatWithCommas(stats.totalMinutes);
 }
+function handleCalculate(event) {
+    event.preventDefault();
+const dateValue = birthDateInput.value;
+const timeValue = birthTimeInput.value;
+
+const errorMessage = validBirthInput(dateValue, timeValue);
+  if (errorMessage) {
+    showError(errorMessage);
+    return;
+  }
+
+  clearError();
+
+  const timePart = timeValue || "00:00";
+birthDateTime = new Date(`${dateValue}T${timePart}:00`);
+
+  emptyState.hidden = true;
+  resultSection.hidden = false;
+
+  if (tickIntervalId !== null) {
+    clearInterval(tickIntervalId);
+  }
+  renderStats();
+tickIntervalId = setInterval(renderStats, 1000);
+}
+function handReset() {
+ birthForm.reset();
+  clearError();
+ 
+  if (tickIntervalId !== null) {
+    clearInterval(tickIntervalId);
+    tickIntervalId = null;
+}
+
+birthDateTime = null;
+resultSection.hidden = true;
+emptyState.hidden = false;
+}
+
+birthForm.addEventListener("submit", handleCalculate);
+resetBtn.addEventListener("click", handReset);

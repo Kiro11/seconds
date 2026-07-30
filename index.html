@@ -1,75 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Age in Seconds — a personal time instrument</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,
-  144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="page">
-    <header class="nameplate">
-        <p class="plate-eyebrow">Personal time instrument</p>
-    <h1>Age in seconds</h1>
-      <p class="plate-sub">A running reading of your elapsed lifetime, updated once every second.</p>
-    </header>
-    <main>
-         <form id="birth-form" class="panel form-panel" novalidate>
-        <div class="control-row">
-            <div class="control">
-            <label for="birth-date">Date of birth</label>
-            <input type="date" id="birth-date" name="birth-date" required>
-          </div> 
-            <div class="control">
-            <label for="birth-time">Time of birth <span class="control-hint">optional — defaults to 00:00</span></label>
-            <input type="time" id="birth-time" name="birth-time">
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age in Seconds — a personal time instrument</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,
+    144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="nameplate">
+          <p class="plate-eyebrow">Personal time instrument</p>
+      <h1>Age in seconds</h1>
+        <p class="plate-sub">A running reading of your elapsed lifetime, updated once every second.</p>
+      </header>
+      <main>
+          <form id="birth-form" class="panel form-panel" novalidate>
+          <div class="control-row">
+              <div class="control">
+              <label for="birth-date">Date of birth</label>
+              <input type="date" id="birth-date" name="birth-date" required>
+            </div> 
+              <div class="control">
+              <label for="birth-time">Time of birth <span class="control-hint">optional — defaults to 00:00</span></label>
+              <input type="time" id="birth-time" name="birth-time">
+            </div>
           </div>
-        </div>
-   <p id="form-error" class="error-tag" role="alert" hidden></p>
-        <div class="control-actions">
-  <button type="submit" id="calculate-btn" class="btn btn-primary">Calculate</button>
-   <button type="button" id="reset-btn" class="btn btn-ghost">Reset</button>
-        </div>
- </form>
-  <section id="empty-state" class="panel empty-panel">
-<p class="empty-headline">No reading yet</p>
-<p class="empty-sub">Enter a date of birth above and press Calculate to start the counter.</p>  
- </section>
-   <section id="results" class="panel results-panel" hidden>
-<div class="gauge-main">
-          <p class="gauge-label">Total seconds elapsed</p>
-          <div id="seconds-display" class="odometer" aria-live="polite" aria-atomic="true"></div>
-        </div>
- <dl class="gauge-grid">
-          <div class="gauge">
-            <dt class="gauge-key">Years</dt>
-            <dd class="gauge-value" id="stat-years">0</dd>
+    <p id="form-error" class="error-tag" role="alert" hidden></p>
+          <div class="control-actions">
+    <button type="submit" id="calculate-btn" class="btn btn-primary">Calculate</button>
+    <button type="button" id="reset-btn" class="btn btn-ghost">Reset</button>
           </div>
-           <div class="gauge">
-            <dt class="gauge-key">Days</dt>
-            <dd class="gauge-value" id="stat-days">0</dd>
+  </form>
+    <section id="empty-state" class="panel empty-panel">
+  <p class="empty-headline">No reading yet</p>
+  <p class="empty-sub">Enter a date of birth above and press Calculate to start the counter.</p>  
+  </section>
+    <section id="results" class="panel results-panel" hidden>
+  <div class="gauge-main">
+            <p class="gauge-label">Total seconds elapsed</p>
+            <div id="seconds-display" class="odometer" aria-live="polite" aria-atomic="true"></div>
           </div>
- <div class="gauge">
-            <dt class="gauge-key">Hours</dt>
-            <dd class="gauge-value" id="stat-hours">0</dd>
-          </div>
-          <div class="gauge">
-            <dt class="gauge-key">Minutes</dt>
-            <dd class="gauge-value" id="stat-minutes">0</dd>
-          </div>
-        </dl>
-          </section>
- 
-    </main>
-      
-    <footer class="page-footer">
-        <p>Figures are measured from your recorded birth moment to the current instant on this device's clock.</p>
-    </footer>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
+  <dl class="gauge-grid">
+            <div class="gauge">
+              <dt class="gauge-key">Years</dt>
+              <dd class="gauge-value" id="stat-years">0</dd>
+            </div>
+            <div class="gauge">
+              <dt class="gauge-key">Days</dt>
+              <dd class="gauge-value" id="stat-days">0</dd>
+            </div>
+  <div class="gauge">
+              <dt class="gauge-key">Hours</dt>
+              <dd class="gauge-value" id="stat-hours">0</dd>
+            </div>
+            <div class="gauge">
+              <dt class="gauge-key">Minutes</dt>
+              <dd class="gauge-value" id="stat-minutes">0</dd>
+            </div>
+          </dl>
+            </section>
+  
+      </main>
+        
+      <footer class="page-footer">
+          <p>Figures are measured from your recorded birth moment to the current instant on this device's clock.</p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+  </html>
